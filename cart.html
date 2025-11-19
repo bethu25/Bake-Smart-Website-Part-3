@@ -1,42 +1,52 @@
 <head>
+    <!-- Set character encoding and browser compatibility -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Make site responsive on all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
     <title>Bake Smart Website</title>
+    <!-- Link to custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" />
     <script src="https://kit.fontawesome.com/2ec44b8aaf.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- Header section with logo and navigation -->
     <section id="header">
-         <a href="index.html"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
+        <a href="index.html"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
 
         <div>
             <ul id="navbar">
-               <li> <a href="index.html">Home</a></li>
-               <li> <a href="shop.html">Shop</a></li>
-               <li> <a href="gallery.html">Gallery</a></li>
-               <li> <a href="about.html">About</a></li>
-               <li> <a href="contact.html">Contact</a></li>
-               <li id="lg-bag"> <a class="active" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count" class="cart-count">0</span></a></li>
-               <a href="#" id="close"> <i class="far fa-times"></i></a> 
+                <!-- Navigation links -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Cart icon with item count -->
+                <li id="lg-bag"><a class="active" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count" class="cart-count">0</span></a></li>
+                <!-- Close icon for mobile nav -->
+                <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
+
+        <!-- Mobile menu and cart icon -->
         <div id="mobile">
             <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
 
+    <!-- Page header for cart section -->
     <section id="page-header" class="about-header">
-
         <h2>#cart</h2>
-
         <p>Add your promo code & SAVE upto 25%</p>
-        
     </section>
 
+    <!-- Cart table showing items -->
     <section id="cart" class="section-p1">
         <table width="100%">
             <thead>
@@ -50,6 +60,7 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- First product row -->
                 <tr>
                     <td><a href="#"><i class="far fa-times-circle"></i></a></td>
                     <td><img src="img/products/cake.jpg" alt=""></td>
@@ -58,6 +69,7 @@
                     <td><input type="number" value="1"></td>
                     <td>R100</td>
                 </tr>
+                <!-- Second product row -->
                 <tr>
                     <td><a href="#"><i class="far fa-times-circle"></i></a></td>
                     <td><img src="img/products/quinches.jpg" alt=""></td>
@@ -70,6 +82,7 @@
         </table>
     </section>
 
+    <!-- Promo code and cart total section -->
     <section id="cart-add" class="section-p1">
         <div id="promo">
             <h3>Apply Promo Code</h3>
@@ -99,25 +112,28 @@
         </div>
     </section>
 
+    <!-- Footer with contact, links, and social media -->
     <footer class="section-p1">
         <div class="col">
             <img class="logo" src="img/BakeSmart_Logo_140x40_transparent.png" alt="">
             <h4>Contact</h4>
-            <p> <strong>Address:</strong> 17 Waterbok Avenue, Fauna Park, Polokwane</p>
-            <p> <strong>Phone:</strong>+27 82 873 5156</p>
-            <p> <strong>Hours:</strong> 9:00 - 18:00, Mon - Sat</p>
+            <p><strong>Address:</strong> 17 Waterbok Avenue, Fauna Park, Polokwane</p>
+            <p><strong>Phone:</strong> +27 82 873 5156</p>
+            <p><strong>Hours:</strong> 9:00 - 18:00, Mon - Sat</p>
             <div class="follow">
-               <h4>Follow Us</h4>
-               <div class="icon">
-                 <a href="https://www.facebook.com/youngc.bethu.5"><i class="fab fa-facebook-f"></i></a> 
-                 <a href="https://x.com/khensi_luv"><i class="fab fa-twitter"></i></a> 
-                 <a href="https://www.instagram.com/bethu486/"><i class="fab fa-instagram"></i></a>
-                 <a href="https://pin.it/3UlKRhuwJ"><i class="fab fa-pinterest-p"></i></a> 
-                 <a href="https://www.youtube.com/@southafricanbarb"><i class="fab fa-youtube"></i></a> 
-               </div>
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <!-- Social media icons -->
+                    <a href="https://www.facebook.com/youngc.bethu.5"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/khensi_luv"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/bethu486/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://pin.it/3UlKRhuwJ"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://www.youtube.com/@southafricanbarb"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
 
+        <!-- Footer links -->
         <div class="col">
             <h4>About</h4>
             <a href="about.html">About Us</a>
@@ -136,37 +152,38 @@
             <a href="#">Help</a>
         </div>
 
-        <div class=" col install">
+        <div class="col install">
             <h4>Install App</h4>
-            <p>From App Store or Google PLay</p>
+            <p>From App Store or Google Play</p>
             <div class="row">
-               <img src="img/pay/app.jpg" alt="">
-               <img src="img/pay/play.jpg" alt="">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
             </div>
             <p>Secured Payment Gateways</p>
             <img src="img/pay/pay.png" alt="">
         </div>
 
+        <!-- Copyright notice -->
         <div class="copyright">
             <p>© 2025, Bake Smart - Bakery Website</p>
         </div>
-
-
     </footer>
-    <script src="miniscreen.js"></script>
 
+    <!-- External JavaScript files -->
+    <script src="miniscreen.js"></script>
     <script src="local.js"></script>
     <script src="cart.js"></script>
 
+    <!-- Script to update cart item count -->
     <script>
         function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let total = 0;
-        cart.forEach(item => {
-        total += item.quantity;
-    });
-    document.getElementById("cart-count").textContent = total;
-    }
-     updateCartCount();
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let total = 0;
+            cart.forEach(item => {
+                total += item.quantity;
+            });
+            document.getElementById("cart-count").textContent = total;
+        }
+        updateCartCount();
     </script>
 </body>
