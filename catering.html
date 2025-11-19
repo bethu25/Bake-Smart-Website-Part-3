@@ -1,75 +1,87 @@
 <head>
+    <!-- Set character encoding and browser compatibility -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Make site responsive on all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
     <title> Bake Smart ECommerce Website</title>
+    <!-- Font Awesome icons -->
     <script src="https://kit.fontawesome.com/2ec44b8aaf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <!-- Link to custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <!-- Header with logo and navigation -->
     <section id="header">
-         <a href="#"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
+        <a href="#"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
 
         <div>
             <ul id="navbar">
-               <li> <a href="index.html">Home</a></li>
-               <li> <a href="shop.html">Shop</a></li>
-               <li> <a href="gallery.html">Gallery</a></li>
-               <li> <a href="about.html">About</a></li>
-               <li> <a href="contact.html">Contact</a></li>
-               <li id="lg-bag"> <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count" class="cart-count">0</span></a></li>
-               <a href="#" id="close"> <i class="far fa-times"></i></a> 
+                <!-- Navigation links -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Cart icon with item count -->
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count" class="cart-count">0</span></a></li>
+                <!-- Close icon for mobile nav -->
+                <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
+
+        <!-- Mobile menu and cart icon -->
         <div id="mobile">
             <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
 
+    <!-- Catering form section -->
     <section id="form-details">
         <form action="">
-            
             <h2>Events & Catering Services</h2>
+            <!-- User name input -->
             <input type="text" name="name" placeholder="Name">
+            <!-- Email input -->
             <input type="text" placeholder="E-mail">
+            <!-- Catering type dropdown -->
             <select id="ServiceSelector">
-            <option>Type Of Catering</option>
-            <option>Drop-off Catering</option>
-            <option>Full-Service Catering</option>
-            <option>DIY Kits</option>
-            <option>Corporate Gifting</option>
-            <option>Seasonal menu</option>
-        </select>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Request"></textarea>
+                <option>Type Of Catering</option>
+                <option>Drop-off Catering</option>
+                <option>Full-Service Catering</option>
+                <option>DIY Kits</option>
+                <option>Corporate Gifting</option>
+                <option>Seasonal menu</option>
+            </select>
+            <!-- Request message box -->
+            <textarea cols="30" rows="10" placeholder="Your Request"></textarea>
+            <!-- Submit button -->
             <button id="submit" class="normal">Submit</button>
         </form>
     </section>
 
+    <!-- EmailJS library for sending form data via email -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Initialize EmailJS with user ID -->
+    <script type="text/javascript"> emailjs.init('oWth_CiXfe6PJP3ry') </script>
 
-    <script type="text/javascript"> emailjs.init('oWth_CiXfe6PJP3ry')</script>
-
+    <!-- Custom script for catering form -->
     <script src="catering.js"></script>
 
-    
-
-
-
-
+    <!-- Update cart count from localStorage -->
     <script>
         function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let total = 0;
-        cart.forEach(item => {
-        total += item.quantity;
-    });
-    document.getElementById("cart-count").textContent = total;
-    }
-     updateCartCount();
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let total = 0;
+            cart.forEach(item => {
+                total += item.quantity;
+            });
+            document.getElementById("cart-count").textContent = total;
+        }
+        updateCartCount();
     </script>
-
-    
 </body>
