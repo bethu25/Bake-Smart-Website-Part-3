@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header: logo, navigation, cart badge, and mobile controls -->
     <section id="header">
          <a href="#"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
 
@@ -28,6 +29,7 @@
         </div>
     </section>
 
+    <!-- Promotions: current offers, coupons, and how-to-redeem information -->
     <section id="promo-head" class="section-p1">
         <div id="privacy" class="delivery">
             <h2>PROMOTIONS & COUPONS</h2> 
@@ -56,6 +58,7 @@
         </div>
     </section>
 
+    <!-- Newsletter Signup: collect emails for marketing and special offers -->
     <section id="newsletter" class="section-p1 section-m1" >
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
@@ -67,6 +70,7 @@
         </form>
     </section>
     
+    <!-- Footer: contact information, site links, social icons, and payment logos -->
     <footer class="section-p1">
         <div class="col">
             <img class="logo" src="img/BakeSmart_Logo_140x40_transparent.png" alt="">
@@ -122,6 +126,7 @@
 
     </footer>
 
+    <!-- Core scripts: main behavior, mobile helpers, and EmailJS for forms -->
     <script src ="script.js"></script>
 
     <script src="miniscreen.js"></script>
@@ -132,6 +137,7 @@
 
     <script src="email.js"></script>
 
+    <!-- Inline helper: update cart badge from localStorage -->
     <script>
         function updateCartCount() {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
