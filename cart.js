@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const promoCodes = {
         "SAVE10": 0.10, // 10% off
         "SAVE50": 0.50,  // 50% off
-        " Bake Smart": 0.35,  //35% off
+        "KHENSANI": 0.35,  //35% off
         "BETHU": 0.20, //20% off
         "STUDENT": 0.05, //5% off
         "EMPLOYEE": 0.15 //15% off
@@ -63,8 +63,7 @@ window.addEventListener("DOMContentLoaded", () => {
             total = subtotal - (subtotal * discount);
         }
 
-
-        // Update totals
+        // Update totals in the DOM (formatted to 2 decimal places)
         subtotalCell.textContent = `R${total.toFixed(2)}`;
         totalCell.textContent = `R${total.toFixed(2)}`; // Add shipping if needed
         updateCartCount();
