@@ -1,4 +1,3 @@
-// popup.js
 // Simple popup helper: shows a temporary message when the cart button is clicked
 
 // Elements: the button that triggers the popup and the popup container itself
