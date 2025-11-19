@@ -9,7 +9,7 @@ form.addEventListener('submit', function(event) {
     btn.disabled = true; // Disable button to prevent multiple submissions
 
     const serviceID = 'default_service';
-    const templateID = 'template_ce1k5jk';
+    const templateID = 'template_17c3mjs';
 
     // 'this' refers to the form element in the addEventListener callback
     emailjs.sendForm(serviceID, templateID, this)
