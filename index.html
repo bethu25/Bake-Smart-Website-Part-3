@@ -12,6 +12,7 @@
 </head>
 <body>
    
+    <!-- Header: logo, main navigation, cart badge, and mobile controls -->
     <section id="header">
          <a href="#"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
 
@@ -32,6 +33,7 @@
         </div>
     </section>
 
+    <!-- Hero: main marketing banner with CTA -->
     <section id="hero">
         <h4>BakeSmart Bakery </h4>
         <h2>Baked With Love</h2>
@@ -41,6 +43,7 @@
 
     </section>
 
+    <!-- Features: quick links for app, online ordering, promotions, support -->
     <section id="feature" class="section-p1">
         <div class="fe-box" onclick="window.location.href='https://play.google.com/store/apps/details?id=com.hoorustech.bakesnap&hl=en';">
             <img src="img/features/f1.png" alt="">
@@ -61,6 +64,7 @@
 
     </section>
 
+    <!-- Featured Products: highlighted items customers can browse -->
     <section id="product1" class="section-p1">
         <h2>Featured Treats</h2>
         <p>Fresh Flavors for the Season - Baked to Delight </p>
@@ -204,12 +208,14 @@
         </div>
     </section>
 
+    <!-- Promotional Banner: limited-time offers and CTA -->
     <section id="banner" class=".section-m1">
         <h4>Half the Price, All the Sweetness!</h4>
         <h2>Up to <span>50% Off</span> This Week Only</h2>
         <button class="normal" onclick="window.location.href='promotions.html';" >Explore More</button>
     </section>
 
+    <!-- New & Delicious: latest arrivals and seasonal items -->
     <section id="product1" class="section-p1">
         <h2>New & Delicious</h2>
         <p>This Season’s Must-Try Bakes Have Arrived</p>
@@ -355,6 +361,7 @@
         </div>
     </section>
 
+    <!-- Small Banners: events, catering, and collection promos -->
     <section id="sm-banner" class="section-p1">
         <div class="banner-box">
             <h4>Events & Catering Services</h4>
@@ -370,6 +377,7 @@
         </div>  
     </section>
 
+    <!-- Newsletter Signup: collect emails for updates and offers -->
     <section id="newsletter" class="section-p1 section-m1" >
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
@@ -381,6 +389,7 @@
         </form>
     </section>
 
+    <!-- Footer: contact info, links, social icons, and payment logos -->
     <footer class="section-p1">
         <div class="col">
             <img class="logo" src="img/BakeSmart_Logo_140x40_transparent.png" alt="">
@@ -436,29 +445,31 @@
 
     </footer>
 
-    <script src="miniscreen.js"></script>
-    <script src ="script.js"></script>
-     
-    <script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <!-- Core scripts: responsive helpers, main behavior, and email support -->
+        <script src="miniscreen.js"></script>
+        <script src ="script.js"></script>
 
-<script type="text/javascript">
-  emailjs.init('oWth_CiXfe6PJP3ry')
-</script>
+        <!-- EmailJS library for contact forms -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<script src="email.js"></script>
+        <script type="text/javascript">
+            emailjs.init('oWth_CiXfe6PJP3ry')
+        </script>
 
-<script>
-        function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let total = 0;
-        cart.forEach(item => {
-        total += item.quantity;
-        });
-        document.getElementById("cart-count").textContent = total;
-        }
-        updateCartCount();
-    </script>
+        <script src="email.js"></script>
+
+        <!-- Inline helper: update cart count badge from localStorage -->
+        <script>
+                function updateCartCount() {
+                        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                        let total = 0;
+                        cart.forEach(item => {
+                                total += item.quantity;
+                        });
+                        document.getElementById("cart-count").textContent = total;
+                }
+                updateCartCount();
+        </script>
 
 
 
