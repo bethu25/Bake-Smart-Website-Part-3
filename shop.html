@@ -33,6 +33,10 @@
     <!-- Products: 'Our Treats' product grid -->
     <section id="product1" class="section-p1">
         <h2>Our Treats</h2>
+        <!-- Search bar for filtering products -->
+        <div style="margin-bottom: 1.5em; text-align: right;">
+            <input type="text" id="product-search" placeholder="Search products..." style="padding: 0.5em; width: 220px; max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
         <!-- Product cards container -->
         <div class="pro-container">
             <div class="pro" data-id="choc-ganache" onclick="window.location.href='sproduct.html';">
@@ -396,6 +400,16 @@
     <script src="email.js"></script>
 
     <script>
+        // --- Product Search Feature ---
+        // Filter products in real time as user types in the search box
+        document.getElementById('product-search').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.pro-container .pro').forEach(function(card) {
+                const name = card.querySelector('.des h5').textContent.toLowerCase();
+                card.style.display = name.includes(query) ? '' : 'none';
+            });
+        });
+
         // Cart helper: update the cart-count badge across pages
         function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
