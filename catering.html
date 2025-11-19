@@ -1,0 +1,75 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khensani ECommerce Website</title>
+    <script src="https://kit.fontawesome.com/2ec44b8aaf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <section id="header">
+         <a href="#"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+               <li> <a href="index.html">Home</a></li>
+               <li> <a href="shop.html">Shop</a></li>
+               <li> <a href="gallery.html">Gallery</a></li>
+               <li> <a href="about.html">About</a></li>
+               <li> <a href="contact.html">Contact</a></li>
+               <li id="lg-bag"> <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count" class="cart-count">0</span></a></li>
+               <a href="#" id="close"> <i class="far fa-times"></i></a> 
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="form-details">
+        <form action="">
+            
+            <h2>Events & Catering Services</h2>
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" placeholder="E-mail">
+            <select id="ServiceSelector">
+            <option>Type Of Catering</option>
+            <option>Drop-off Catering</option>
+            <option>Full-Service Catering</option>
+            <option>DIY Kits</option>
+            <option>Corporate Gifting</option>
+            <option>Seasonal menu</option>
+        </select>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Request"></textarea>
+            <button id="submit" class="normal">Submit</button>
+        </form>
+    </section>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript"> emailjs.init('s-h8N-c0RDYCvGRW4')</script>
+
+    <script src="catering.js"></script>
+
+    
+
+
+
+
+    <script>
+        function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let total = 0;
+        cart.forEach(item => {
+        total += item.quantity;
+    });
+    document.getElementById("cart-count").textContent = total;
+    }
+     updateCartCount();
+    </script>
+
+    
+</body>
