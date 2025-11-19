@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!-- Site header / navigation -->
     <section id="header">
          <a href="index.html"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
 
@@ -29,7 +30,9 @@
         </div>
     </section>
 
+    <!-- Products: secondary product grid (page 2) -->
     <section id="product1" class="section-p1">
+        <!-- Product cards container -->
         <div class="pro-container">
             <div class="pro" data-id="bubblegum-macarons" onclick="window.location.href='product.html';">
                 <img src="img/products/Cookies2.jpg" alt="">
@@ -308,12 +311,14 @@
     </section>
 
     <section id="pagination" class="section-p1">
+        <!-- Pagination for product pages -->
         <a href="shop.html"><i class="fal fa-long-arrow-alt-left"></i></a>
         <a href="shop.html">1</a>
         <a class="active" href="shop1.html">2</a>
     </section>
 
     <section id="newsletter" class="section-p1 section-m1" >
+        <!-- Newsletter signup section -->
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
             <p>Get Email Updates about our latest shop and <span>special offers.</span></p>
@@ -390,63 +395,66 @@
     <script src="email.js"></script>
 
     <script>
+        // Cart helper: update the cart-count badge across pages
         function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let total = 0;
-        cart.forEach(item => {
-        total += item.quantity;
-    });
-    document.getElementById("cart-count").textContent = total;
-    }
-     updateCartCount();
-
-    
-
-function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function isInCart(productId) {
-    const cart = getCart();
-    return cart.some(item => item.id === productId);
-}
-
-function updateCartButtons() {
-    document.querySelectorAll('.add-cart').forEach(btn => {
-        const id = btn.dataset.id;
-        if (isInCart(id)) {
-            btn.innerHTML = '<i class="fas fa-check-circle cart" style="color:green"></i> Added';
-            btn.classList.add('in-cart');
-            btn.style.pointerEvents = 'none'; // Prevent click
-        } else {
-            btn.innerHTML = '<i class="fal fa-shopping-cart cart"></i>';
-            btn.classList.remove('in-cart');
-            btn.style.pointerEvents = 'auto';
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let total = 0;
+            cart.forEach(item => {
+                total += item.quantity;
+            });
+            document.getElementById("cart-count").textContent = total;
         }
-    });
-}
+        updateCartCount();
 
-document.querySelectorAll('.add-cart').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const id = btn.dataset.id;
-        if (!isInCart(id)) {
-            // Add product to cart (customize with your product data)
-            const productDiv = btn.closest('.pro');
-            const name = productDiv.querySelector('.des h5').textContent;
-            const price = parseFloat(productDiv.querySelector('.des h4').textContent.replace('R',''));
-            const image = productDiv.querySelector('img').src;
+        // Return cart array from localStorage (or empty array)
+        function getCart() {
+            return JSON.parse(localStorage.getItem("cart")) || [];
+        }
+
+        // Check whether a product id already exists in the cart
+        function isInCart(productId) {
             const cart = getCart();
-            cart.push({ id, name, price, image, quantity: 1 });
-            localStorage.setItem("cart", JSON.stringify(cart));
-            updateCartButtons();
-            updateCartCount();
-            alert("Product added to cart!");
+            return cart.some(item => item.id === productId);
         }
-    });
-});
 
-updateCartButtons();
+        // Update all `.add-cart` buttons to reflect cart state (Added / Add)
+        function updateCartButtons() {
+            document.querySelectorAll('.add-cart').forEach(btn => {
+                const id = btn.dataset.id;
+                if (isInCart(id)) {
+                    btn.innerHTML = '<i class="fas fa-check-circle cart" style="color:green"></i> Added';
+                    btn.classList.add('in-cart');
+                    btn.style.pointerEvents = 'none'; // Prevent click
+                } else {
+                    btn.innerHTML = '<i class="fal fa-shopping-cart cart"></i>';
+                    btn.classList.remove('in-cart');
+                    btn.style.pointerEvents = 'auto';
+                }
+            });
+        }
+
+        document.querySelectorAll('.add-cart').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const id = btn.dataset.id;
+                if (!isInCart(id)) {
+                    // Add product to cart (customize with your product data)
+                    const productDiv = btn.closest('.pro');
+                    const name = productDiv.querySelector('.des h5').textContent;
+                    const price = parseFloat(productDiv.querySelector('.des h4').textContent.replace('R',''));
+                    const image = productDiv.querySelector('img').src;
+                    const cart = getCart();
+                    cart.push({ id, name, price, image, quantity: 1 });
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    updateCartButtons();
+                    updateCartCount();
+                    // Temporary feedback; consider replacing with a non-blocking toast
+                    alert("Product added to cart!");
+                }
+            });
+        });
+
+        updateCartButtons();
 
     </script>
 </body>
