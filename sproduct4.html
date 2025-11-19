@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!-- Site header / navigation -->
     <section id="header">
          <a href="#"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
 
@@ -29,6 +30,7 @@
         </div>
     </section>
 
+    <!-- Product details: main image, metadata, selectors and add-to-cart button -->
     <section id="prodetails" class="section-p1">
        <div class="single-pro-image">
            <img src="img/products/croissant.jpg" width="100%" id="MainImg" alt=""> 
@@ -51,6 +53,7 @@
        <div id="popupMessage" class="hidden">Product added to cart!</div>
     </section>
 
+    <!-- Related / suggested products section -->
     <section id="product1" class="section-p1">
         <h2>New & Delicious</h2>
         <p>This Season’s Must-Try Bakes Have Arrived</p>
@@ -127,6 +130,7 @@
     </section>
 
 
+    <!-- Newsletter signup section -->
     <section id="newsletter" class="section-p1 section-m1" >
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
@@ -194,49 +198,51 @@
     </footer>
 
     <script>
+        // Cart helper: update the cart-count badge across pages
         function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let total = 0;
-        cart.forEach(item => {
-        total += item.quantity;
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let total = 0;
+            cart.forEach(item => {
+                total += item.quantity;
+            });
+            document.getElementById("cart-count").textContent = total;
+        }
+        updateCartCount();
+
+        // Add-to-cart button: collect product data, persist to localStorage and update UI
+        document.getElementById("cartButton").addEventListener("click", function (){
+            const product = {
+                id: "hg-croissant",
+                name: "Honey-Glazed Croissant",
+                price: 85,
+                quantity: parseInt(document.getElementById("quantitySelector").value),
+                size: document.getElementById("sizeSelector").value,
+                image: "img/products/croissant.jpg"
+            };
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (!cart.some(item => item.id === product.id)) {
+                cart.push(product);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartCount();
+
+                const btn = document.getElementById("cartButton");
+                btn.textContent = "Added";
+                btn.disabled = true;
+                btn.style.backgroundColor = "#ccc";
+            }
         });
-       document.getElementById("cart-count").textContent = total;
-       }
-       updateCartCount();
 
-    document.getElementById("cartButton").addEventListener("click", function (){
-     const product = {
-     id: "hg-croissant",
-     name: "Honey-Glazed Croissant",
-     price: 85,
-     quantity: parseInt(document.getElementById("quantitySelector").value),
-     size: document.getElementById("sizeSelector").value,
-     image: "img/products/croissant.jpg" 
-   };
-
-   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-   if (!cart.some(item => item.id ===product)) {
-   cart.push(product);
-   localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-
-    const btn = document.getElementById("cartButton");
-        btn.textContent = "Added";
-        btn.disabled = true;
-        btn.style.backgroundColor = "#ccc";
-   }
-   //window.location.href= "cart.html"//
-   });
-
-   window.addEventListener("DOMContentLoaded", function () {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (cart.some(item => item.id === "hg-croissant")) {
-        const btn = document.getElementById("cartButton");
-        btn.textContent = "Added";
-        btn.disabled = true;
-        btn.style.backgroundColor = "#ccc";
-    }
-    });
+        // On load: disable Add button if product already in cart
+        window.addEventListener("DOMContentLoaded", function () {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.some(item => item.id === "hg-croissant")) {
+                const btn = document.getElementById("cartButton");
+                btn.textContent = "Added";
+                btn.disabled = true;
+                btn.style.backgroundColor = "#ccc";
+            }
+        });
     </script>
 
     <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
