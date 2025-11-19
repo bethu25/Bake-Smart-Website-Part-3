@@ -11,6 +11,7 @@
 </head>
 <body>
 
+    <!-- Header: site logo, navigation links, cart icon, and mobile controls -->
     <section id="header">
          <a href="index.html"><img src="img/BakeSmart_Logo_140x40_transparent.png" class="logo" alt=""></a>
 
@@ -31,6 +32,7 @@
         </div>
     </section>
 
+    <!-- Page Header: hero section for the About page -->
     <section id="page-header" class="about-header">
 
         <h2>#KnowUs</h2>
@@ -39,6 +41,7 @@
         
     </section>
 
+    <!-- About Section: Who we are with image and description -->
     <section id="about-head" class="section-p1" >
         <img src="img/about/about2.png" alt="">
         <div>
@@ -48,6 +51,7 @@
         </div>
     </section>
 
+    <!-- Delivery Information: areas, times, fees, and packaging details -->
     <section id="about-head" class="section-p1" >
         <div class="delivery">
             <h2>Delivery Information</h2>
@@ -65,6 +69,7 @@
 
     </section>
 
+    <!-- Privacy Policy: how user data is collected, used, and protected -->
     <section id="about-head" class="section-p1">
         <div id="privacy" class="delivery">
             <h2>Privacy Policy</h2> 
@@ -105,6 +110,7 @@
         </div>
     </section>
 
+    <!-- Terms & Conditions: rules for ordering, refunds, and IP -->
     <section id="about-head" class="section-p1">
         <div id="privacy" class="delivery">
             <h2>Terms & Conditions</h2> 
@@ -145,6 +151,7 @@
         </div>
     </section>
 
+    <!-- App Promotion: link to mobile app and demo video -->
     <section id="about-app" class="section-p1">
         <h1>Download Our <a href="https://play.google.com/store/apps/details?id=com.hoorustech.bakesnap&hl=en">App</a></h1>
         <div class="video">
@@ -152,6 +159,7 @@
         </div>
     </section>
 
+    <!-- Newsletter Signup: collect emails for marketing and updates -->
     <section id="newsletter" class="section-p1 section-m1" >
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
@@ -163,6 +171,7 @@
         </form>
     </section>
     
+    <!-- Footer: contact info, links, social icons, and payment logos -->
     <footer class="section-p1">
         <div class="col">
             <img class="logo" src="img/BakeSmart_Logo_140x40_transparent.png" alt="">
@@ -218,16 +227,19 @@
 
     </footer>
 
+    <!-- Core site scripts: main behavior, responsive helpers, and email support -->
     <script src ="script.js"></script>
 
     <script src="miniscreen.js"></script>
 
+    <!-- EmailJS library for contact forms -->
     <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script type="text/javascript">emailjs.init('oWth_CiXfe6PJP3ry')</script>
 
     <script src="email.js"></script>
 
+    <!-- Small inline script: update cart item count from localStorage -->
     <script>
         function updateCartCount() {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
